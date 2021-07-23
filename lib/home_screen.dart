@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:currency_converter/Components/currency_picker.dart';
+import 'package:currency_converter/Components/reusable_card.dart';
 
 
 class MyHomePage extends StatefulWidget {
@@ -30,13 +31,14 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            CurrencyPicker('USD'),
+           ReusableCard(),
             FlatButton(
+
               child: Icon(
                   Icons.arrow_forward_ios_outlined
               ),
             ),
-            CurrencyPicker('IND')
+            ReusableCard()
           ],
           
         ),
