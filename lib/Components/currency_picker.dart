@@ -2,29 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 
-const List<String> currenciesList = [
-  'AUD',
-  'BRL',
-  'CAD',
-  'CNY',
-  'EUR',
-  'GBP',
-  'HKD',
-  'IDR',
-  'ILS',
-  'INR',
-  'JPY',
-  'MXN',
-  'NOK',
-  'NZD',
-  'PLN',
-  'RON',
-  'RUB',
-  'SEK',
-  'SGD',
-  'USD',
-  'ZAR'
-];
+
 
 String selectedCurrency;
 
@@ -35,6 +13,29 @@ class CurrencyPicker extends StatelessWidget{
   @override
 
   String currency;
+  List<String> currenciesList = [
+    'AUD',
+    'BRL',
+    'CAD',
+    'CNY',
+    'EUR',
+    'GBP',
+    'HKD',
+    'IDR',
+    'ILS',
+    'INR',
+    'JPY',
+    'MXN',
+    'NOK',
+    'NZD',
+    'PLN',
+    'RON',
+    'RUB',
+    'SEK',
+    'SGD',
+    'USD',
+    'ZAR'
+  ];
   List<Text> pickerItems = [];
   void addPickerItems(){
     for (String currency in currenciesList) {
@@ -45,9 +46,10 @@ class CurrencyPicker extends StatelessWidget{
 
 
   Widget build(BuildContext context) {
+    addPickerItems();
     return CupertinoPicker(
         backgroundColor: Colors.tealAccent,
-        itemExtent: 32.0,
+        itemExtent: 50.0,
         onSelectedItemChanged: (selectedIndex){
             currency= currenciesList[selectedIndex];
         },
