@@ -32,10 +32,13 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
            ReusableCard(),
-            FlatButton(
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: FlatButton(
 
-              child: Icon(
-                  Icons.arrow_forward_ios_outlined
+                child: Icon(
+                    Icons.arrow_forward_ios_outlined
+                ),
               ),
             ),
             ReusableCard()
