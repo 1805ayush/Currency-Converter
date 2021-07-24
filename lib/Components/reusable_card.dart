@@ -10,11 +10,21 @@ class ReusableCard extends StatelessWidget{
 
     return Container(
       child:
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: CurrencyPicker(
-              'USD'
-          ),
+        Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CurrencyPicker(
+                  'USD'
+              ),
+            ),
+            Padding(
+                padding:  const EdgeInsets.all(8.0),
+                child: TextField(
+
+                ),
+            )
+          ],
         )
     );
   }
