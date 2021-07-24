@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class Converter{
 
@@ -8,7 +11,21 @@ class Converter{
   String toCurrency;
   String amount;
 
-  Future convertCurrency(){
+  Future convertCurrency(fromCurrency,toCurrency,amount) async{
+
+    String requestURL="$baseURL$apiKey&from=$fromCurrency&to=$toCurrency&amount=$amount";
+
+    http.Response response= await http.get(requestURL);
+    if(response.statusCode==200){
+      var decodedData = jsonDecode(response.body);
+      print(decodedData);
+      double price = decodedData['result'];
+      print(price);
+
+    }else{
+
+    }
+
 
   }
 

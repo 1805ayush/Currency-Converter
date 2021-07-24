@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:currency_converter/Components/currency_picker.dart';
 import 'package:currency_converter/Components/reusable_card.dart';
-
+import 'converter.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -14,6 +14,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  Converter con = new Converter();
+
 
   void _incrementCounter() {
     setState(() {
@@ -35,7 +37,9 @@ class _MyHomePageState extends State<MyHomePage> {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: FlatButton(
-
+                onPressed:() async{
+                 await con.convertCurrency('INR','USD','10');
+                },
                 child: Icon(
                     Icons.arrow_forward_ios_outlined
                 ),
