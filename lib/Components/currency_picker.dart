@@ -52,6 +52,7 @@ class CurrencyPicker extends StatelessWidget{
         itemExtent: 50.0,
         onSelectedItemChanged: (selectedIndex){
             currency= currenciesList[selectedIndex];
+            print(currency);
         },
         children: pickerItems,
     );

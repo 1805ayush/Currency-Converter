@@ -8,14 +8,14 @@ class ReusableCard extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
 
-    return Card(
-
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: CurrencyPicker(
-          'USD'
-        ),
-      ),
+    return Container(
+      child:
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: CurrencyPicker(
+              'USD'
+          ),
+        )
     );
   }
 }
