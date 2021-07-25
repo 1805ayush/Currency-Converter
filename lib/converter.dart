@@ -13,6 +13,7 @@ class Converter{
   Future convertCurrency(fromCurrency,toCurrency,amount) async{
 
     String requestURL="$baseURL$apiKey/pair/$fromCurrency/$toCurrency/$amount";
+    print(amount);
 
     http.Response response= await http.get(requestURL);
     if(response.statusCode==200){
