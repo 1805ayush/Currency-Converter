@@ -49,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.all(16.0),
               child: FlatButton(
                 onPressed:() async{
-                convertedValue= await con.convertCurrency('INR','USD',rc1.valueAmount);
+                convertedValue= await con.convertCurrency(rc1.pickerValue,'USD',rc1.valueAmount);
                 getData(convertedValue);
                 },
                 child: Icon(

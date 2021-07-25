@@ -9,18 +9,18 @@ class ReusableCard extends StatelessWidget{
 
   String labelText;
   String valueAmount;
+  String currency;
+  String pickerValue;
   @override
   Widget build(BuildContext context) {
-
+    CurrencyPicker currencyPicker =new CurrencyPicker('USD');
     return Container(
       child:
         Column(
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: CurrencyPicker(
-                  'USD'
-              ),
+              child: currencyPicker.build(context),
             ),
             Padding(
                 padding:  const EdgeInsets.all(8.0),
@@ -31,6 +31,7 @@ class ReusableCard extends StatelessWidget{
                   ),
                   onChanged: (value){
                     valueAmount=value;
+                    pickerValue=currencyPicker.currency;
                   },
                 ),
             )
