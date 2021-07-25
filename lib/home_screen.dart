@@ -17,8 +17,15 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   String amount='1';
+  String value='';
+  double convertedValue;
   Converter con = new Converter();
 
+  getData(dynamic valueResult) async{
+    setState(() {
+      value=valueResult.toString();
+    });
+  }
 
   void _incrementCounter() {
     setState(() {
@@ -42,7 +49,8 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.all(16.0),
               child: FlatButton(
                 onPressed:() async{
-                 await con.convertCurrency('INR','USD',rc1.valueAmount);
+                convertedValue= await con.convertCurrency('INR','USD',rc1.valueAmount);
+                getData(convertedValue);
                 },
                 child: Icon(
                     Icons.arrow_forward_ios_outlined
@@ -50,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             ReusableCard(
-              '',
+              value,
               null,
             )
           ],

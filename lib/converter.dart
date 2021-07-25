@@ -21,6 +21,7 @@ class Converter{
       print(decodedData);
       double price = decodedData['conversion_result'];
       print(price);
+      return price;
 
     }else{
       print(response.statusCode);
