@@ -30,7 +30,7 @@ class ReusableCard extends StatelessWidget{
                     labelText: '$labelText',
                   ),
                   onChanged: (value){
-                    value=valueAmount;
+                    valueAmount=value;
                   },
                 ),
             )
