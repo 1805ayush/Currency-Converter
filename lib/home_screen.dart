@@ -19,6 +19,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String amount='1';
   String value='';
   double convertedValue;
+  String rc2value;
   Converter con = new Converter();
 
   getData(dynamic valueResult) async{
@@ -27,15 +28,10 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     ReusableCard rc1 = new ReusableCard('Enter amount',amount);
+    ReusableCard rc2= new ReusableCard( value,null);
     return Scaffold(
       appBar: AppBar(
         title: Text('Currency Converter'),
@@ -49,7 +45,9 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.all(16.0),
               child: FlatButton(
                 onPressed:() async{
+
                 convertedValue= await con.convertCurrency(rc1.pickerValue,'USD',rc1.valueAmount);
+                print(rc2.pickerValue);
                 getData(convertedValue);
                 },
                 child: Icon(
@@ -57,19 +55,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            ReusableCard(
-              value,
-              null,
-            )
+            rc2.build(context)
           ],
           
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.arrow_forward_ios_outlined),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
