@@ -20,6 +20,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String value='';
   double convertedValue;
   String rc2value;
+
   Converter con = new Converter();
 
   getData(dynamic valueResult) async{
@@ -40,14 +41,13 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            rc1.build(context),
+            rc1,
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: FlatButton(
                 onPressed:() async{
 
-                convertedValue= await con.convertCurrency(rc1.pickerValue,'USD',rc1.valueAmount);
-                print(rc2.pickerValue);
+                convertedValue= await con.convertCurrency(rc1.pickerValue,rc2.pickerValue,rc1.valueAmount);
                 getData(convertedValue);
                 },
                 child: Icon(
@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            rc2.build(context)
+            rc2
           ],
           
         ),

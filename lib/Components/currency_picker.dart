@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-String selectedCurrency;
+// String selectedCurrency;
 class CurrencyPicker extends StatelessWidget{
   CurrencyPicker(
-      this.currency
+      this.currency,
+      this.onSelectedPickerChanged,
       );
   @override
 
   String currency;
+  Function(String) onSelectedPickerChanged;
   List<String> currenciesList = [
     'AUD',
     'BRL',
@@ -46,7 +48,9 @@ class CurrencyPicker extends StatelessWidget{
         backgroundColor: Colors.tealAccent,
         itemExtent: 50.0,
         onSelectedItemChanged:(selectedIndex){
+
             currency= currenciesList[selectedIndex];
+            onSelectedPickerChanged(currency);
             print(currency);
         },
         children: pickerItems,
