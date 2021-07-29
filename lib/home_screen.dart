@@ -31,8 +31,23 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    ReusableCard rc1 = new ReusableCard('Enter amount',amount);
-    ReusableCard rc2= new ReusableCard( value,null);
+    ReusableCard rc1 = new ReusableCard(
+        'Enter amount',
+        amount,
+        (){
+        setState(() {
+
+      });
+    });
+    ReusableCard rc2= new ReusableCard(
+        value,
+        null,
+        (){
+          setState((rc2.) {
+            rc2value;
+          });
+        }
+    );
     return Scaffold(
       appBar: AppBar(
         title: Text('Currency Converter'),
@@ -51,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 getData(convertedValue);
                 },
                 child: Icon(
-                    Icons.arrow_forward_ios_outlined
+                    Icons.keyboard_arrow_down_rounded
                 ),
               ),
             ),
