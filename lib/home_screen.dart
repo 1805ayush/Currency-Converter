@@ -19,6 +19,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String amount='1';
   String value='';
   double convertedValue;
+  String rc1value;
   String rc2value;
 
   Converter con = new Converter();
@@ -34,17 +35,17 @@ class _MyHomePageState extends State<MyHomePage> {
     ReusableCard rc1 = new ReusableCard(
         'Enter amount',
         amount,
-        (){
+        (pickerValue){
         setState(() {
-
+          rc1value =pickerValue;
       });
     });
     ReusableCard rc2= new ReusableCard(
         value,
         null,
-        (){
-          setState((rc2.) {
-            rc2value;
+        (pickerValue){
+          setState(() {
+            rc2value = pickerValue;
           });
         }
     );
@@ -61,8 +62,8 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.all(16.0),
               child: FlatButton(
                 onPressed:() async{
-
-                convertedValue= await con.convertCurrency(rc1.pickerValue,rc2.pickerValue,rc1.valueAmount);
+                convertedValue= await con.convertCurrency(rc1value,rc2value,rc1.valueAmount);
+                print(rc1.valueAmount);
                 getData(convertedValue);
                 },
                 child: Icon(
@@ -71,8 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             rc2
-          ],
-          
+          ]
         ),
       ),
     );
