@@ -1,7 +1,5 @@
 import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-import 'package:currency_converter/Components/currency_picker.dart';
 import 'package:currency_converter/Components/reusable_card.dart';
 import 'converter.dart';
 
@@ -47,7 +45,8 @@ class _MyHomePageState extends State<MyHomePage> {
           setState(() {
             rc2value = pickerValue;
           });
-        }
+        },
+
     );
     return Scaffold(
       appBar: AppBar(
