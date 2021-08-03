@@ -65,6 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.all(16.0),
               child: FlatButton(
                 onPressed:() async{
+                  print(rc1Controller.text);
                 convertedValue= await con.convertCurrency(rc1value,rc2value,rc1Controller.text);
                 print(rc1.valueAmount);
                 getData(convertedValue);
