@@ -7,15 +7,17 @@ class ReusableCard extends StatefulWidget{
   ReusableCard(
       this.labelText,
       this.valueAmount,
-      this.onSelectedCardChanged
+      this.onSelectedCardChanged,
+      this.myController
       );
 
   String labelText;
   String valueAmount;
   Function onSelectedCardChanged;
+  TextEditingController myController;
 
   @override
-  _ReusableCardState createState() => _ReusableCardState(labelText,valueAmount,onSelectedCardChanged);
+  _ReusableCardState createState() => _ReusableCardState(labelText,valueAmount,onSelectedCardChanged,myController);
 }
 
 class _ReusableCardState extends State<ReusableCard> {
@@ -23,13 +25,17 @@ class _ReusableCardState extends State<ReusableCard> {
   _ReusableCardState(
       this.labelText,
       this.valueAmount,
-      this.onSelectedCardChanged
+      this.onSelectedCardChanged,
+      this.mycontroller
       );
   String currency;
   String labelText;
   String valueAmount;
   String pickerValue;
   Function(String) onSelectedCardChanged;
+  TextEditingController myController;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -51,6 +57,7 @@ class _ReusableCardState extends State<ReusableCard> {
             Padding(
                 padding:  const EdgeInsets.all(8.0),
                 child: TextField(
+                  controller: myController,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: '$labelText',
