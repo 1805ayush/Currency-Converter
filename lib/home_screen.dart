@@ -18,12 +18,15 @@ class _MyHomePageState extends State<MyHomePage> {
   double convertedValue;
   String rc1value;
   String rc2value;
+  final rc1Controller =TextEditingController();
+  final rc2Controller =TextEditingController();
 
   Converter con = new Converter();
 
   getData(dynamic valueResult) async{
     setState(() {
       value=valueResult.toString();
+      rc2Controller.text = value;
     });
   }
 
@@ -36,7 +39,9 @@ class _MyHomePageState extends State<MyHomePage> {
         setState(() {
           rc1value =pickerValue;
       });
-    });
+    },
+    rc1Controller
+    );
     ReusableCard rc2= new ReusableCard(
         value,
         null,
@@ -45,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
             rc2value = pickerValue;
           });
         },
-
+      rc2Controller
     );
     return Scaffold(
       appBar: AppBar(
@@ -60,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.all(16.0),
               child: FlatButton(
                 onPressed:() async{
-                convertedValue= await con.convertCurrency(rc1value,rc2value,amount);
+                convertedValue= await con.convertCurrency(rc1value,rc2value,rc1Controller.text);
                 print(rc1.valueAmount);
                 getData(convertedValue);
                 },

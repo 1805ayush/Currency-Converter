@@ -26,7 +26,7 @@ class _ReusableCardState extends State<ReusableCard> {
       this.labelText,
       this.valueAmount,
       this.onSelectedCardChanged,
-      this.mycontroller
+      this.myController,
       );
   String currency;
   String labelText;
